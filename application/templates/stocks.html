@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ companyName }}
+{% endblock %}
+
+{% block content %}
+
+<section class="colored-section" id="title">
+    <div class="company-nav">
+        <nav class="navbar navbar-expand-lg navbar-dark comp-nav">
+            <a class="navbar-brand" href="#">NIF15</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="/home">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/analyze">Analyze</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#predict">Predict</a>
+                  </li>
+              </ul>
+            </div>
+          </nav>
+    </div>
+</section>
+
+<section class="company-graph">
+    <div class="row inner">
+        <div class="column-avgGraph col-lg-6">
+           <h2 class="heading2">{{ companyName }}</h2>
+           <div id="stockGraph"></div>
+        </div>
+        <div class="column-abtCompany col-lg-6">
+            <h2>About</h2>
+            <p class="about">
+                {{ about }}
+            </p>
+        </div>
+      </div>
+</section>
+
+<section class="candleGraph" data-aos="fade-right">
+    <h2 class="heading2">Performance</h2>
+    <div id="candleChart"></div>
+</section>
+
+<section class="pie" data-aos="fade-left">
+    <div class="row">
+        <div class="col-lg-2 highLowStat">
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <h3 class="highText">Today's High</h3>
+            <h4 class="highText">₹ {{ high }}</h4>
+            <h3 class="lowText">Today's Low</h3>
+            <h4 class="lowText">₹ {{ low }}</h4>
+        </div>
+        <div class="col-lg-4">
+            <h2 class="heading2">Stats</h2>
+            <div id="highLowGraph"></div>
+        </div>
+        <div class="col-lg-6">
+            <h2 class="heading2">Market Capitalisation (In lakhs)</h2>
+            <div id="pieChart"></div>
+        </div>
+    </div>
+</section>
+
+<section class="prediction" id="predict" data-aos="fade-right">
+    <h2 class="heading2">Prediction</h2>
+    <div id="predictedGraph"></div>
+</section>
+
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script type="text/javascript">
+        var graphs1 = {{ stockGraphJSON | safe}};
+        Plotly.plot("stockGraph", graphs1,{});
+    </script>
+    <script type="text/javascript">
+        var graphs2 = {{ candleGraphJSON | safe}};
+        Plotly.plot("candleChart", graphs2,{});
+    </script>
+    <script type="text/javascript">
+        var graphs3 = {{ predictionGraphJSON | safe}};
+        Plotly.plot("predictedGraph", graphs3,{});
+    </script>
+    <script type="text/javascript">
+        var graphs4 = {{ pieChartJSON | safe}};
+        Plotly.plot("pieChart", graphs4,{});
+    </script>
+    <script type="text/javascript">
+        var graphs5 = {{ highLowJSON | safe}};
+        Plotly.plot("highLowGraph", graphs5,{});
+    </script>
+
+
+{% endblock %}

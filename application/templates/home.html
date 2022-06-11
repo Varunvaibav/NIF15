@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+<section class="colored-section" id="title">
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" href=""></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/analyze">Analyze</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#companies-section">Top Companies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    
+
+        <!-- Title -->
+        <div class="row">
+            <div class="col-lg-6">
+               <h1 class="big-heading">NIF15</h1>
+               <h2>Nurture your future by investing.</h2>
+            </div>
+            <div class="col-lg-6">
+                <div id="navCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                          <h2>Predict stock values</h2>
+                      </div>
+                      <div class="carousel-item">
+                          <h2>Analyze Stocks</h2>
+                      </div>
+                      <div class="carousel-item">
+                          <h2>Visualize Stocks</h2>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="outer" id="graph-section" data-aos="slide-up">
+    <div class="row inner">
+        <div class="column-avgGraph col-lg-6">
+            <h1 class="heading2">NIF15</h1>
+            <div id="avgChart"></div>
+        </div>
+        <div class="column-avgStats col-lg-4">
+            <h2 class="heading2">Performance</h2>
+            <div id="highLowGraph"></div>
+        </div>
+        <div class="column-avgStats col-lg-2">
+            <br>
+            <br>
+            <br>
+            <h3 class="highText">Today's High</h3>
+            <h4 class="highText">₹ {{ high }}</h4>
+            <h3 class="lowText">Today's Low</h3>
+            <h4 class="lowText">₹ {{ low }}</h4>
+        </div>
+      </div>
+</section>
+
+<section class="outer" id="companies-section">
+    <div class="row inner">
+        <h2 class="heading2">Top Companies</h2>
+
+        
+        {% for name,tickerId in ticker.items() %}
+        <div class="company-col col-lg-2 col-md-3 col-sm-4">
+            <div class="card">
+                <img src="/plot/{{name}}.png" class="miniGraphs" alt="stock price graph">
+                <div class="card-body">
+                  <!-- <p class="card-text">High :</p>
+                  <p class="card-text">Low  :</p> -->
+                  <a href="/stocks/{{name}}" class="companyLinks">{{ name }}</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</section>
+
+<footer class="colored-section" id="contact">
+    <a href="https://www.linkedin.com/in/muhammed-shimer-s-1861bb210/"><i class="sicon fa-brands fa-linkedin"></i></a>
+    <a href="https://www.linkedin.com/in/varunvaibav-sridharan/"><i class="sicon fa-brands fa-linkedin"></i></a>
+    <a href=""><i class="sicon fa-brands fa-twitter"></i></a>
+    <a href=""><i class="sicon fa-brands fa-instagram"></i></a>
+    <a href=""><i class="sicon fa-solid fa-envelope"></i></a>
+    <p>© Copyright NIF15</p>
+
+  </footer>
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script type="text/javascript">
+        var graphs1 = {{ avgGraphJSON | safe}};
+        Plotly.plot("avgChart", graphs1,{});
+    </script>
+    <script type="text/javascript">
+        var graphs2 = {{ highLowGraphJSON | safe}};
+        Plotly.plot("highLowGraph", graphs2,{});
+    </script>
+
+{% endblock %}

@@ -1,0 +1,168 @@
+
+body {
+    font-family: "Montserrat",sans-serif;
+    text-align: center;
+  }
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Montserrat",sans-serif;
+    font-weight: bold;
+    line-height: 1.5;
+  }
+
+p {
+    color: #8f8f8f;
+  }  
+
+.big-heading {
+    font-size: 5rem;
+    font-weight: 900;
+  }
+
+.colored-section {
+    background-color: #293462;
+    color: #fff;
+  }
+
+.container-fluid {
+    padding: 3% 15% 7%;
+  }
+
+#title {
+    text-align: left;
+  }
+
+/* Navigation Bar */
+
+.navbar {
+    padding: 1.5rem 0 8rem 0;
+  }
+  
+.navbar-brand {
+    font-family: "Ubuntu";
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+  
+.nav-item {
+    padding: 0 18px;
+  }
+  
+.nav-link {
+    font-size: 1.2rem;
+    font-family: "Montserrat",sans-serif;
+    font-weight: lighter;
+  }
+
+#navCarousel {
+    text-align: right;
+  }
+
+#homeGraph {
+    height: 500px;
+  }
+
+.outer {
+    margin: 2%;
+    text-align: center;
+ }
+
+.inner {
+  margin: 1% 2%;
+  text-align: center;
+}
+
+.company-col {
+  margin: 1.25% 1.65%;
+  text-align: center;
+}
+
+.heading2 {
+  color: #4D4C7D;
+  text-align: left;
+}
+
+#contact {
+  padding: 7% 15%;
+}
+
+.sicon {
+  color: #fff;
+  margin: 20px 10px;
+}
+
+.miniGraphs {
+  height: 60px;
+}
+
+.companyLinks {
+  text-decoration: none;
+  color: #646FD4;
+}
+
+.companyLinks:hover {
+  color: #F47C7C;
+}
+
+.column-avgStats {
+  color: #4D4C7D;
+  margin-top: 40px;
+}
+
+.card-text {
+  margin-bottom: 9px;
+}
+
+.graphs {
+  padding-left: 20px;
+  height: 400px;
+  width: 420px;
+}
+
+.column-avgStats {
+  margin-top: 0px;
+  text-align: end;
+}
+
+.highText {
+  color: #293462;
+}
+
+.lowText {
+  color: #F24C4C;
+}
+
+.comp-nav {
+  padding: 5px 40px 5px 40px;
+}
+
+.column-abtCompany {
+  color: black;
+  padding: 75px;
+  text-align: left;
+}
+
+.about {
+  color: black;
+  font-size: 18px;
+}
+
+.candleGraph {
+  margin: 0 5%;
+}
+
+.company-graph {
+  padding-top: 25px;
+}
+
+.prediction {
+  margin: 0 5%;
+}
+
+.pie {
+  margin: 0 5%;
+}
+
+.highLowStat {
+  text-align: left;
+}
