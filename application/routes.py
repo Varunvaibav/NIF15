@@ -43,6 +43,7 @@ ticker = {"Tech Mahindra" : "TECHM",
     "Asian Paints" : "ASIANPAINT",
     "HCL Technologies" : "HCLTECH" }
 
+@app.route('/', defaults={'path': ''})
 @app.route('/home')
 def home():
     ticker = {"Tech Mahindra" : "TECHM",
